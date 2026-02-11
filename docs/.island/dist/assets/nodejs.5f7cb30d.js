@@ -1,4 +1,4 @@
-import{jsx as e,jsxs as l,Fragment as c}from"react/jsx-runtime";const o=void 0,t=[{id:"installation",text:"Installation",depth:2},{id:"usage",text:"Usage",depth:2},{id:"initializing-fusionpay",text:"Initializing FusionPay",depth:3},{id:"setting-payment-data",text:"Setting Payment Data",depth:3},{id:"making-a-payment",text:"Making a Payment",depth:3},{id:"payment-response-structure",text:"Payment Response Structure",depth:4},{id:"handling-payment-callback",text:"Handling Payment Callback",depth:3},{id:"checking-payment-status",text:"Checking Payment Status",depth:3},{id:"payment-verification-response-structure",text:"Payment Verification Response Structure",depth:4},{id:"custom-data-examples",text:"Custom Data Examples",depth:2},{id:"api-reference",text:"API Reference",depth:2},{id:"constructor",text:"Constructor",depth:3},{id:"methods",text:"Methods",depth:3},{id:"error-handling",text:"Error Handling",depth:2}],i="Node.js package: The flexible way to use";function r(s){const n=Object.assign({h1:"h1",a:"a",h2:"h2",p:"p",div:"div",button:"button",span:"span",pre:"pre",code:"code",h3:"h3",h4:"h4",ul:"ul",li:"li"},s.components);return l(c,{children:[l(n.h1,{id:"nodejs-package-the-flexible-way-to-use",children:[e(n.a,{className:"header-anchor","aria-hidden":"true",href:"#nodejs-package-the-flexible-way-to-use",children:"#"}),"Node.js package: The flexible way to use"]}),`
+import{jsx as e,jsxs as l,Fragment as c}from"react/jsx-runtime";const o=void 0,t=[{id:"installation",text:"Installation",depth:2},{id:"usage",text:"Usage",depth:2},{id:"initializing-fusionpay",text:"Initializing FusionPay",depth:3},{id:"setting-payment-data",text:"Setting Payment Data",depth:3},{id:"making-a-payment",text:"Making a Payment",depth:3},{id:"payment-response-structure",text:"Payment Response Structure",depth:4},{id:"handling-payment-callback",text:"Handling Payment Callback",depth:3},{id:"checking-payment-status",text:"Checking Payment Status",depth:3},{id:"payment-verification-response-structure",text:"Payment Verification Response Structure",depth:4},{id:"custom-data-examples",text:"Custom Data Examples",depth:2},{id:"api-reference",text:"API Reference",depth:2},{id:"constructor",text:"Constructor",depth:3},{id:"methods",text:"Methods",depth:3},{id:"error-handling",text:"Error Handling",depth:2}],i="Node.js package: The flexible way to use";function s(r){const n=Object.assign({h1:"h1",a:"a",h2:"h2",p:"p",div:"div",button:"button",span:"span",pre:"pre",code:"code",h3:"h3",h4:"h4",ul:"ul",li:"li"},r.components);return l(c,{children:[l(n.h1,{id:"nodejs-package-the-flexible-way-to-use",children:[e(n.a,{className:"header-anchor","aria-hidden":"true",href:"#nodejs-package-the-flexible-way-to-use",children:"#"}),"Node.js package: The flexible way to use"]}),`
 `,l(n.h2,{id:"installation",children:[e(n.a,{className:"header-anchor","aria-hidden":"true",href:"#installation",children:"#"}),"Installation"]}),`
 `,e(n.p,{children:"Install FusionPay using npm or yarn:"}),`
 `,l(n.div,{className:"language-bash",style:{backgroundColor:"#2e3440ff"},children:[e(n.button,{className:"copy"}),e(n.span,{className:"lang",children:"bash"}),e(n.pre,{children:l(n.code,{className:"",children:[e(n.span,{className:"line",children:e(n.span,{style:{color:"#D8DEE9FF"},children:"npm install fusionpay"})}),`
@@ -134,177 +134,177 @@ import{jsx as e,jsxs as l,Fragment as c}from"react/jsx-runtime";const o=void 0,t
 `,e(n.li,{children:e(n.code,{children:"checkPaymentStatus(token: string): Promise<PaymentVerificationResponse<T>>"})}),`
 `]}),`
 `,l(n.h2,{id:"error-handling",children:[e(n.a,{className:"header-anchor","aria-hidden":"true",href:"#error-handling",children:"#"}),"Error Handling"]}),`
-`,e(n.p,{children:"The library throws errors for failed API calls and invalid parameters. Always wrap API calls in try-catch blocks for proper error handling."})]})}function d(s={}){const{wrapper:n}=s.components||{};return n?e(n,Object.assign({},s,{children:e(r,s)})):r(s)}const h="2024/11/12 17:56:25",p=`# Node.js package: The flexible way to use
-
-## Installation
-
-Install FusionPay using npm or yarn:
-
-\`\`\`bash
-npm install fusionpay
-\`\`\`
-
-## Usage
-
-### Initializing FusionPay
-
-\`\`\`typescript
-import { FusionPay } from "fusionpay";
-
-// Basic initialization
-const fusionPay = new FusionPay("https://your-api-url.com");
-
-// With custom data type
-interface OrderData {
-  orderId: string;
-  customerEmail: string;
-}
-const typedFusionPay = new FusionPay<OrderData>("https://your-api-url.com");
-\`\`\`
-
-### Setting Payment Data
-
-\`\`\`typescript
-fusionPay
-  .totalPrice(200)
-  .addArticle("Sac", 100)
-  .addArticle("Veste", 100)
-  .addInfo({
-    orderId: "12345",
-    customerEmail: "customer@example.com",
-  })
-  .clientName("M. Yaya")
-  .clientNumber("01010101")
-  .returnUrl("https://my_callback_url.com");
-\`\`\`
-
-### Making a Payment
-
-\`\`\`typescript
-try {
-  const response = await fusionPay.makePayment();
-  console.log("Payment initiated:", response);
-  // Redirect user to payment URL or send url to client
-} catch (error) {
-  console.error("Payment initiation failed:", error);
-}
-\`\`\`
-
-#### Payment Response Structure
-
-\`\`\`typescript
-{
-  statut: boolean; // Payment initiation status
-  token: string; // Token for payment verification
-  message: string; // Status message
-  url: string; // Payment gateway URL for user redirection
-}
-\`\`\`
-
-### Handling Payment Callback
-
-When the payment is completed, the user will be redirected to your return URL with a token parameter:
-
-:::tip{title=''}
-https://my_callback_url.com?token=payment_token_here
-:::
-
-### Checking Payment Status
-
-\`\`\`typescript
-//extract token in your url
-//eg: Nodejs -> const {token} = req.query
-
-try {
-  // Verify payment status
-
-  const status = await fusionPay.checkPaymentStatus(token);
-  if (status.statut && status.data.statut === "paid") {
-    // Payment successful
-    const customData = status.data.personal_Info[0];
-    // Handle success...
-  }
-} catch (error) {
-  console.error("Status check failed:", error);
-}
-\`\`\`
-
-#### Payment Verification Response Structure
-
-\`\`\`typescript
-{
-  statut: boolean;      // Verification request status
-  message: string;      // Status message
-  data: {
-    _id: string;        // Payment record ID
-    tokenPay: string;   // Payment token
-    numeroSend: string; // Customer phone number
-    nomclient: string;  // Customer name
-    personal_Info: T[]; // Your custom data array
-    numeroTransaction: string;  // Transaction reference
-    Montant: number;    // Payment amount
-    frais: number;      // Transaction fees
-    statut: "pending" | "paid" | "failed";  // Payment status
-    moyen: string;      // Payment method used
-    return_url: string; // Callback URL
-    createdAt: string;  // Transaction timestamp
-  }
-}
-\`\`\`
-
-## Custom Data Examples
-
-Here are some examples of custom data you might want to store:
-
-\`\`\`typescript
-// E-commerce order
-interface OrderData {
-  orderId: string;
-  customerEmail: string;
-}
-
-// Subscription
-interface SubscriptionData {
-  planId: string;
-  subscriberId: string;
-  period: "monthly" | "yearly";
-}
-
-// Event ticket
-interface TicketData {
-  eventId: string;
-  ticketType: string;
-  quantity: number;
-}
-
-// Usage
-const payment = new FusionPay<OrderData>(apiUrl);
-payment.addInfo({
-  orderId: "ORD-123",
-  customerEmail: "customer@example.com",
-});
-\`\`\`
-
-## API Reference
-
-### Constructor
-
-- \`new FusionPay<T = CustomPaymentData>(apiUrl: string)\`
-
-### Methods
-
-All methods (except \`makePayment\` and \`checkPaymentStatus\`) support method chaining.
-
-- \`totalPrice(amount: number): this\`
-- \`addArticle(name: string, value: number): this\`
-- \`addInfo(data: T): this\`
-- \`clientName(name: string): this\`
-- \`clientNumber(number: string): this\`
-- \`returnUrl(url: string): this\`
-- \`makePayment(): Promise<PaymentResponse>\`
-- \`checkPaymentStatus(token: string): Promise<PaymentVerificationResponse<T>>\`
-
-## Error Handling
-
-The library throws errors for failed API calls and invalid parameters. Always wrap API calls in try-catch blocks for proper error handling.
+`,e(n.p,{children:"The library throws errors for failed API calls and invalid parameters. Always wrap API calls in try-catch blocks for proper error handling."})]})}function d(r={}){const{wrapper:n}=r.components||{};return n?e(n,Object.assign({},r,{children:e(s,r)})):s(r)}const h="2024/11/12 17:56:25",p=`# Node.js package: The flexible way to use\r
+\r
+## Installation\r
+\r
+Install FusionPay using npm or yarn:\r
+\r
+\`\`\`bash\r
+npm install fusionpay\r
+\`\`\`\r
+\r
+## Usage\r
+\r
+### Initializing FusionPay\r
+\r
+\`\`\`typescript\r
+import { FusionPay } from "fusionpay";\r
+\r
+// Basic initialization\r
+const fusionPay = new FusionPay("https://your-api-url.com");\r
+\r
+// With custom data type\r
+interface OrderData {\r
+  orderId: string;\r
+  customerEmail: string;\r
+}\r
+const typedFusionPay = new FusionPay<OrderData>("https://your-api-url.com");\r
+\`\`\`\r
+\r
+### Setting Payment Data\r
+\r
+\`\`\`typescript\r
+fusionPay\r
+  .totalPrice(200)\r
+  .addArticle("Sac", 100)\r
+  .addArticle("Veste", 100)\r
+  .addInfo({\r
+    orderId: "12345",\r
+    customerEmail: "customer@example.com",\r
+  })\r
+  .clientName("M. Yaya")\r
+  .clientNumber("01010101")\r
+  .returnUrl("https://my_callback_url.com");\r
+\`\`\`\r
+\r
+### Making a Payment\r
+\r
+\`\`\`typescript\r
+try {\r
+  const response = await fusionPay.makePayment();\r
+  console.log("Payment initiated:", response);\r
+  // Redirect user to payment URL or send url to client\r
+} catch (error) {\r
+  console.error("Payment initiation failed:", error);\r
+}\r
+\`\`\`\r
+\r
+#### Payment Response Structure\r
+\r
+\`\`\`typescript\r
+{\r
+  statut: boolean; // Payment initiation status\r
+  token: string; // Token for payment verification\r
+  message: string; // Status message\r
+  url: string; // Payment gateway URL for user redirection\r
+}\r
+\`\`\`\r
+\r
+### Handling Payment Callback\r
+\r
+When the payment is completed, the user will be redirected to your return URL with a token parameter:\r
+\r
+:::tip{title=''}\r
+https://my_callback_url.com?token=payment_token_here\r
+:::\r
+\r
+### Checking Payment Status\r
+\r
+\`\`\`typescript\r
+//extract token in your url\r
+//eg: Nodejs -> const {token} = req.query\r
+\r
+try {\r
+  // Verify payment status\r
+\r
+  const status = await fusionPay.checkPaymentStatus(token);\r
+  if (status.statut && status.data.statut === "paid") {\r
+    // Payment successful\r
+    const customData = status.data.personal_Info[0];\r
+    // Handle success...\r
+  }\r
+} catch (error) {\r
+  console.error("Status check failed:", error);\r
+}\r
+\`\`\`\r
+\r
+#### Payment Verification Response Structure\r
+\r
+\`\`\`typescript\r
+{\r
+  statut: boolean;      // Verification request status\r
+  message: string;      // Status message\r
+  data: {\r
+    _id: string;        // Payment record ID\r
+    tokenPay: string;   // Payment token\r
+    numeroSend: string; // Customer phone number\r
+    nomclient: string;  // Customer name\r
+    personal_Info: T[]; // Your custom data array\r
+    numeroTransaction: string;  // Transaction reference\r
+    Montant: number;    // Payment amount\r
+    frais: number;      // Transaction fees\r
+    statut: "pending" | "paid" | "failed";  // Payment status\r
+    moyen: string;      // Payment method used\r
+    return_url: string; // Callback URL\r
+    createdAt: string;  // Transaction timestamp\r
+  }\r
+}\r
+\`\`\`\r
+\r
+## Custom Data Examples\r
+\r
+Here are some examples of custom data you might want to store:\r
+\r
+\`\`\`typescript\r
+// E-commerce order\r
+interface OrderData {\r
+  orderId: string;\r
+  customerEmail: string;\r
+}\r
+\r
+// Subscription\r
+interface SubscriptionData {\r
+  planId: string;\r
+  subscriberId: string;\r
+  period: "monthly" | "yearly";\r
+}\r
+\r
+// Event ticket\r
+interface TicketData {\r
+  eventId: string;\r
+  ticketType: string;\r
+  quantity: number;\r
+}\r
+\r
+// Usage\r
+const payment = new FusionPay<OrderData>(apiUrl);\r
+payment.addInfo({\r
+  orderId: "ORD-123",\r
+  customerEmail: "customer@example.com",\r
+});\r
+\`\`\`\r
+\r
+## API Reference\r
+\r
+### Constructor\r
+\r
+- \`new FusionPay<T = CustomPaymentData>(apiUrl: string)\`\r
+\r
+### Methods\r
+\r
+All methods (except \`makePayment\` and \`checkPaymentStatus\`) support method chaining.\r
+\r
+- \`totalPrice(amount: number): this\`\r
+- \`addArticle(name: string, value: number): this\`\r
+- \`addInfo(data: T): this\`\r
+- \`clientName(name: string): this\`\r
+- \`clientNumber(number: string): this\`\r
+- \`returnUrl(url: string): this\`\r
+- \`makePayment(): Promise<PaymentResponse>\`\r
+- \`checkPaymentStatus(token: string): Promise<PaymentVerificationResponse<T>>\`\r
+\r
+## Error Handling\r
+\r
+The library throws errors for failed API calls and invalid parameters. Always wrap API calls in try-catch blocks for proper error handling.\r
 `;export{p as content,d as default,o as frontmatter,h as lastUpdatedTime,i as title,t as toc};

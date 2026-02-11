@@ -32,7 +32,17 @@ This information is necessary for verification purposes.
 
 ### Step 3: Application Creation
 
+![Application Creation Illustration](https://sc-digital.nyc3.cdn.digitaloceanspaces.com/sc-digital/images/1770812734849-Capture_d_____cran_2026-02-11_122044.png)
+
 Once you create an application, an API link will be generated that can be implemented across multiple sites and applications.
+
+:::danger{title='Important'}
+
+- The site URL must be valid and accessible.
+- The `callback_url` must belong to the main domain or an authorized subdomain.
+- Only registered IP addresses can make API requests.
+- Any unregistered IP will be automatically blocked.
+  :::
 
 ## Next Steps
 

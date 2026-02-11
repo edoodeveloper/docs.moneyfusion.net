@@ -32,7 +32,17 @@ Ces informations sont nécessaires à des fins de vérification.
 
 ### Étape 3 : Création d'une application
 
+![Illustration création d'application](https://sc-digital.nyc3.cdn.digitaloceanspaces.com/sc-digital/images/1770812734849-Capture_d_____cran_2026-02-11_122044.png)
+
 Une fois que vous avez créé une application, un lien API sera généré qui peut être mis en œuvre sur plusieurs sites et applications.
+
+:::danger{title='Important'}
+
+- L’URL du site doit être valide et accessible.
+- Le `callback_url` doit appartenir au domaine principal ou à un sous-domaine autorisé.
+- Seules les adresses IP server enregistrées pourront consommer l’API.
+- Toute IP non déclarée sera automatiquement bloquée.
+  :::
 
 ## Prochaines étapes
 
