@@ -49,22 +49,26 @@ Ces informations sont nécessaires à des fins de vérification.
 <Step>
 ### Création d'une application
 
-<div style={{ margin: "24px 0", textAlign: "center" }}>
-  <img
-    src="https://sc-digital.nyc3.cdn.digitaloceanspaces.com/sc-digital/images/1770812734849-Capture_d_____cran_2026-02-11_122044.png"
-    alt="Interface de création d'application Fusion Pay"
-    style={{ borderRadius: "12px", maxWidth: "100%", height: "auto" }}
-  />
-</div>
+![Illustration création d'application](https://sc-digital.nyc3.cdn.digitaloceanspaces.com/sc-digital/images/1770812734849-Capture_d_____cran_2026-02-11_122044.png)
 
-Une **clé API sécurisée** sera générée après validation. Elle permettra à votre serveur d’effectuer des requêtes vers l’API Fusion Pay.
+Un **lien API** sera généré après validation. Il permettra à votre serveur d’effectuer des requêtes vers l’API Fusion Pay.
 
-<Callout type="warning" title="Règles de sécurité obligatoires">
+<Callout type="warning" title="Règles de sécurité">
 
 - L’URL du site doit être valide et publiquement accessible.
-- Le `callback_url` doit appartenir au domaine principal ou à un sous-domaine autorisé.
+- Le `callback_url (facultatif)`. URL de redirection après paiement si disponible doit appartenir au domaine principal ou à un sous-domaine autorisé.
 - Seules les adresses IP enregistrées pourront consommer l’API.
 - Toute IP non déclarée sera automatiquement bloquée.
+
+</Callout>
+
+<Callout type="idea" title="Astuce pratique">
+
+Si vous tentez un paiement depuis une IP non autorisée, vous recevrez le message suivant :
+
+**IP non autorisée ou application non approuvée (xxx.198.xx.252)**
+
+L’IP affichée entre parenthèses est **celle que vous devez enregistrer** dans votre application Fusion Pay.
 
 </Callout>
 
