@@ -46,7 +46,24 @@ This information is necessary for verification purposes.
 <Step>
 ### Application Creation
 
+<div style={{ margin: "24px 0", textAlign: "center" }}>
+  <img
+    src="https://sc-digital.nyc3.cdn.digitaloceanspaces.com/sc-digital/images/1770812734849-Capture_d_____cran_2026-02-11_122044.png"
+    alt="Interface de création d'application Fusion Pay"
+    style={{ borderRadius: "12px", maxWidth: "100%", height: "auto" }}
+  />
+</div>
+
 Once you create an application, an API link will be generated that can be implemented across multiple sites and applications.
+
+<Callout type="warning" title="Mandatory Security Rules">
+
+- The website URL must be valid and publicly accessible.
+- The `callback_url` must belong to the main domain or an authorized subdomain.
+- Only registered IP addresses will be allowed to access the API.
+- Any undeclared IP will be automatically blocked.
+
+</Callout>
 
  </Step>
 </Steps>
